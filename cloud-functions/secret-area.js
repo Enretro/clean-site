@@ -1,7 +1,7 @@
-exports.handler = function(event, contex, callback) {
+exports.handler = function(event, context, callback) {
   const secretContent = `
-  <h3>Welcome To Secret Area</h3>
-  <p>We can tell you that the sky is <srtong>blue</strong>, and en plus en is equals tree.</p>
+  <h3>Welcome To The Secret Area</h3>
+  <p>Here we can tell you that the sky is <strong>blue</strong>, and en plus en equals tree en.</p>
   `
   
   let body
@@ -9,7 +9,7 @@ exports.handler = function(event, contex, callback) {
   if (event.body) {
     body = JSON.parse(event.body)
   } else {
-    body = {}  	
+    body = {}
   }
 
   if (body.password == "javascript") {
@@ -17,12 +17,11 @@ exports.handler = function(event, contex, callback) {
       statusCode: 200,
       body: secretContent
     })
-
   } else {
     callback(null, {
       statusCode: 401
     })
-  } 
+  }
 
   
 }
